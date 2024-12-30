@@ -1,31 +1,13 @@
 #!/bin/bash
 
-# Function to print text with gradient color
-print_gradient() {
-    # Split input into lines
-    IFS=$'\n' read -r -d '' -a lines <<< "$1"
-    
-    # Calculate total number of lines
-    total_lines=${#lines[@]}
-    
-    # Define gradient range (cyan colors in 256-color mode)
-    start_color=51  # bright cyan
-    end_color=37   # darker cyan
-    
-    # Print each line with its corresponding color
-    for ((i = 0; i < total_lines; i++)); do
-        # Calculate current color in the gradient
-        progress=$(echo "scale=4; $i / ($total_lines - 1)" | bc)
-        color_diff=$(echo "scale=4; $start_color - $end_color" | bc)
-        current_color=$(echo "scale=0; $start_color - ($color_diff * $progress)" | bc)
-        
-        # Print the line with calculated color
-        echo -e "\033[38;5;${current_color}m${lines[$i]}\033[0m"
-    done
-}
+# Clear screen
+clear
 
-read -r -d '' ASCII_ART << 'EOT'
-__/\\\\\\________/\\\\\\\\\________________________________________/\\\\\\\\\\___/\\\\\\_        
+# Print in white
+printf "\033[37m"
+
+cat << 'EOT'
+__/\\\\\\________/\\\\\\\\\\________________________________________/\\\\\\\\\\___/\\\\\\_        
  _\/\\\//______/\\\////////_______________________________________/\\\///////\\\_\////\\\_       
   _\/\\\______/\\\/___________________________/\\\________________\///______/\\\_____\/\\\_      
    _\/\\\_____/\\\______________/\\\\\\\\\____\///___/\\/\\\\\\___________/\\\//______\/\\\_     
@@ -36,4 +18,5 @@ __/\\\\\\________/\\\\\\\\\________________________________________/\\\\\\\\\\__
         _\//////________\/////////___\////////\//__\///__\///____\///____\/////////_____\//////__
 EOT
 
-print_gradient "$ASCII_ART"
+# Reset color
+printf "\033[0m\n"
