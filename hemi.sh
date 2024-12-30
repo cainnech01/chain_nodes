@@ -7,6 +7,7 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 YELLOW='\033[1;33m'
 MAGENTA='\033[0;35m'
+WHITE='\033[37m'
 RESET='\033[0m'
 
 # Icons for menu options
@@ -23,7 +24,7 @@ ICON_EXIT="❌"
 # Functions to draw borders and display menu
 display_ascii() {
     curl https://raw.githubusercontent.com/cainnech01/chain_nodes/refs/heads/main/logo.sh | bash
-    echo -e "          ${MAGENTA}${ICON_TELEGRAM} Follow us on Telegram!${RESET}"
+    echo -e "          ${WHITE}${ICON_TELEGRAM} Follow us on Telegram!${RESET}"
 }
 
 show() {
@@ -239,19 +240,19 @@ while true; do
     show_menu() {
         clear
         display_ascii
-        echo -e "    ${BLUE}Welcome to the Hemi Network Node Management${RESET}"
+        echo -e "    ${WHITE}Welcome to the Hemi Network Node Management${RESET}"
         echo -e "    ${GREEN}Manage your node efficiently and easily.${RESET}"
-        echo -e "    ${BLUE}Subscribe to our channel: ${YELLOW}https://t.me/dknodes${RESET}"
-        echo -e "    ${YELLOW}Please choose an option:${RESET}"
+        echo -e "    ${WHITE}Subscribe to our channel: ${YELLOW}https://t.me/innodes${RESET}"
+        echo -e "    ${WHITE}Please choose an option:${RESET}"
         echo
-        echo -e "    ${CYAN}1.${RESET} ${ICON_INSTALL} Install/Update Node"
-        echo -e "    ${CYAN}2.${RESET} ${ICON_LOGS} View Service Logs"
-        echo -e "    ${CYAN}3.${RESET} ${ICON_WALLET} View Wallet Information"
-        echo -e "    ${CYAN}4.${RESET} ${ICON_RESTART} Change Service Parameters"
-        echo -e "    ${CYAN}5.${RESET} ${ICON_STOP} Stop Node"
-        echo -e "    ${CYAN}6.${RESET} ${ICON_START} Start Node"
-        echo -e "    ${CYAN}0.${RESET} ${ICON_EXIT} Exit"
-        echo -ne "    ${YELLOW}Enter your choice [0-6]:${RESET} "
+        echo -e "    ${WHITE}1.${RESET} ${ICON_INSTALL} Install/Update Node"
+        echo -e "    ${WHITE}2.${RESET} ${ICON_LOGS} View Service Logs"
+        echo -e "    ${WHITE}3.${RESET} ${ICON_WALLET} View Wallet Information"
+        echo -e "    ${WHITE}4.${RESET} ${ICON_RESTART} Change Service Parameters"
+        echo -e "    ${WHITE}5.${RESET} ${ICON_STOP} Stop Node"
+        echo -e "    ${WHITE}6.${RESET} ${ICON_START} Start Node"
+        echo -e "    ${WHITE}0.${RESET} ${ICON_EXIT} Exit"
+        echo -ne "    ${GREEN}Enter your choice [0-6]:${RESET} "
         read choice
     }
 
